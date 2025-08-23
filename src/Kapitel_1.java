@@ -38,6 +38,7 @@ public class Kapitel_1 {
                 "till kursen i Javaprogrammering.");
         System.out.println("*********************************");
 
+        // Programmeringuppgift 1.7
         System.out.println("Datum & tid:");
         System.out.println(Calendar.getInstance().getTime().toString());
     }
