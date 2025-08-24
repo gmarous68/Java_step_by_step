@@ -1,6 +1,8 @@
 public class Main {
     public static void main(String[] args) {
-        Kapitel_1.printMyNameAndNumber("Gerald", 123456789);
-        Kapitel_1.printOtherStuff();
+
+        //Kapitel_2.App();
+
+        //Kapitel_1.App("Gerald", 123456789);
     }
 }
