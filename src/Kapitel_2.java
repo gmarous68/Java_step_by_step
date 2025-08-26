@@ -92,8 +92,8 @@ public class Kapitel_2 {
 
     public static void exercise_2_11() {
         String text = "Välkommen ";
-        String fName = javax.swing.JOptionPane.showInputDialog("Skriv in ditt förnamn:");
-        String eName = javax.swing.JOptionPane.showInputDialog("Skriv in ditt efternamn:");
+        String fName = JOptionPane.showInputDialog("Skriv in ditt förnamn:");
+        String eName = JOptionPane.showInputDialog("Skriv in ditt efternamn:");
         text += fName + " " + eName;
         JOptionPane.showMessageDialog(null, text);
     }
@@ -126,7 +126,7 @@ public class Kapitel_2 {
         System.out.println("Skriv in en mening bestående av minst två ord: ");
         String text = sc.nextLine();
         System.out.println("Du skrev " + text.length() + " tecken");
-        System.out.println("Det första ordet var " + "\"" + text.substring(0,text.indexOf(" ")) + "\"");
+        System.out.println("Det första ordet var " + "\"" + text.substring(0, text.indexOf(" ")) + "\"");
         System.out.println("Det sista ordet var " + "\"" +
                 text.substring(text.lastIndexOf(" ") + 1) + "\"");
     }
