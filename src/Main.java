@@ -4,6 +4,10 @@ public class Main {
 //        Kapitel_3.App();
 //        Kapitel_2.App();
 //        Kapitel_1.App("Gerald", 123456789);
-//        MiscCode.Fibonacci(21);
+//        MiscCode.fibonacci(21);
+//        MiscCode.leapYear();
+//        MiscCode.ternaryOp();
+//        Inlämningsuppgift_1.del_1();
+//        Inlämningsuppgift_1.del_2();
     }
 }

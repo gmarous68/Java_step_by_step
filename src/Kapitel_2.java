@@ -1,4 +1,5 @@
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
@@ -99,9 +100,9 @@ public class Kapitel_2 {
     }
 
     public static void programmeringuppgift_2_1() {
-        String time = Calendar.getInstance().getTime().toString();
-        String printText = "Klockan är: " + time.substring(11, 20);
-        System.out.println(printText);
+        DateTimeFormatter formatted = DateTimeFormatter.ofPattern("hh:mm:ss");
+        String time = LocalDateTime.now().format(formatted);
+        System.out.println("Time now is: " + time);
         System.out.println("*********************************");
     }
 

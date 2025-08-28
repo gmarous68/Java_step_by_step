@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Kapitel_3 {
     public static void App() {
-        /*exercise_3_1();
+        exercise_3_1();
         exercise_3_2();
         exercise_3_6();
         exercise_3_7();
@@ -18,7 +18,7 @@ public class Kapitel_3 {
         programmeringuppgift_3_2();
         programmeringuppgift_3_3();
         programmeringuppgift_3_4();
-        programmeringuppgift_3_5();*/
+        programmeringuppgift_3_5();
     }
 
     public static void exercise_3_1() {
@@ -134,7 +134,7 @@ public class Kapitel_3 {
             a = Double.parseDouble(JOptionPane.showInputDialog("Första sidan?  "));
             b = Double.parseDouble(JOptionPane.showInputDialog("Andra sidan?  "));
 
-            c = Math.sqrt(a * a + b * b);
+            c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
             String formattedStr = String.format("%.2f", c);
 
             JOptionPane.showMessageDialog(null, "Hypotenusans längd är: " + formattedStr);
@@ -147,13 +147,13 @@ public class Kapitel_3 {
         double radie, volym, area;
         try {
             radie = Double.parseDouble(JOptionPane.showInputDialog("Tast in Sfärens radie: "));
-            volym = (4 / 3.0) * Math.PI * (radie * radie * radie);
+            volym = (4 / 3.0) * Math.PI * Math.pow(radie, 3.0);
 
             String formattedString = String.format("%.1f", volym);
             JOptionPane.showMessageDialog(null, "Volym: "
                     + formattedString + " cm" + '\u00B3');
 
-            area = 4 * Math.PI * (radie * radie);
+            area = 4 * Math.PI * Math.pow(radie, 2.0);
             formattedString = String.format("%.1f", area);
             JOptionPane.showMessageDialog(null, "Area: "
                     + formattedString + " cm" + '\u00B2');

@@ -1,5 +1,5 @@
 import javax.swing.*;
-import java.util.Calendar;
+import java.time.LocalDateTime;
 
 public class Kapitel_1 {
     public static void App(String fName, int tlfNo) {
@@ -45,7 +45,7 @@ public class Kapitel_1 {
 
     public static void programmeringuppgift_1_7() {
         System.out.println("Datum & tid:");
-        System.out.println(Calendar.getInstance().getTime().toString());
+        System.out.println(LocalDateTime.now());
         System.out.println("*********************************");
     }
 
