@@ -32,4 +32,18 @@ public class MiscCode {
         String message = (time < 18) ? "Good day." : "Good evening.";
         System.out.println(message);
     }
+
+    public static void newSwitch() {
+        String month = JOptionPane.showInputDialog("Which month: (type 3 first letters in month)");
+        int days = switch (month.toLowerCase()) {
+            case "apr", "jun", "sep", "nov" -> 30;
+            case "jan", "mar", "may", "jul", "aug", "oct", "dec" -> 31;
+            case "feb" -> 28;
+            default -> {
+                System.out.println("Illegal option types in!");
+                yield 0;
+            }
+        };
+        System.out.println(month + " has " + days + " days!");
+    }
 }

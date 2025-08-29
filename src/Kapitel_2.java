@@ -15,17 +15,17 @@ comment
 
 public class Kapitel_2 {
     public static void App() {
-        textBlockTest();
-        exercise_2_2();
-        exercise_2_3();
-        exercise_2_6();
-        exercise_2_7();
-        exercise_2_8();
-        exercise_2_11();
-        programmeringuppgift_2_1();
-        programmeringuppgift_2_2();
-        programmeringuppgift_2_3();
-        programmeringuppgift_2_4();
+//        textBlockTest();
+//        exercise_2_2();
+//        exercise_2_3();
+//        exercise_2_6();
+//        exercise_2_7();
+//        exercise_2_8();
+//        exercise_2_11();
+//        programmeringuppgift_2_1();
+//        programmeringuppgift_2_2();
+//        programmeringuppgift_2_3();
+//        programmeringuppgift_2_4();
     }
 
     public static void textBlockTest() {
@@ -103,7 +103,7 @@ public class Kapitel_2 {
         DateTimeFormatter formatted = DateTimeFormatter.ofPattern("hh:mm:ss");
         String time = LocalDateTime.now().format(formatted);
         System.out.println("Time now is: " + time);
-        System.out.println("*********************************");
+
     }
 
     public static void programmeringuppgift_2_2() {
@@ -112,6 +112,7 @@ public class Kapitel_2 {
         String namn = sc.nextLine();
         String förNamn = namn.substring(namn.indexOf(" ") + 1);
         System.out.println("Hej " + förNamn);
+        System.out.println("*********************************");
     }
 
     public static void programmeringuppgift_2_3() {
@@ -120,6 +121,7 @@ public class Kapitel_2 {
         sc.next();
         String förNamn = sc.next();
         System.out.println("Hej " + förNamn);
+        System.out.println("*********************************");
     }
 
     public static void programmeringuppgift_2_4() {
@@ -130,5 +132,6 @@ public class Kapitel_2 {
         System.out.println("Det första ordet var " + "\"" + text.substring(0, text.indexOf(" ")) + "\"");
         System.out.println("Det sista ordet var " + "\"" +
                 text.substring(text.lastIndexOf(" ") + 1) + "\"");
+        System.out.println("*********************************");
     }
 }

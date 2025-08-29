@@ -3,13 +3,13 @@ import java.time.LocalDateTime;
 
 public class Kapitel_1 {
     public static void App(String fName, int tlfNo) {
-        exercise_1_6(fName, tlfNo);
-        exercise_1_7(fName, tlfNo);
-        printOtherStuff();
-        exercise_1_8(fName, tlfNo);
-        exercise_1_9(fName, tlfNo);
-        exercise_1_10(fName, tlfNo);
-        programmeringuppgift_1_7();
+//        exercise_1_6(fName, tlfNo);
+//        exercise_1_7(fName, tlfNo);
+//        printOtherStuff();
+//        exercise_1_8(fName, tlfNo);
+//        exercise_1_9(fName, tlfNo);
+//        exercise_1_10(fName, tlfNo);
+//        programmeringuppgift_1_7();
     }
 
     public static void exercise_1_6(String fName, int tlfNo) {

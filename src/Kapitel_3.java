@@ -5,20 +5,20 @@ import java.util.Scanner;
 
 public class Kapitel_3 {
     public static void App() {
-        exercise_3_1();
-        exercise_3_2();
-        exercise_3_6();
-        exercise_3_7();
-        exercise_3_8();
-        exercise_3_9();
-        exercise_3_10();
-        exercise_3_11();
-        exercise_3_12();
-        programmeringuppgift_3_1();
-        programmeringuppgift_3_2();
-        programmeringuppgift_3_3();
-        programmeringuppgift_3_4();
-        programmeringuppgift_3_5();
+//        exercise_3_1();
+//        exercise_3_2();
+//        exercise_3_6();
+//        exercise_3_7();
+//        exercise_3_8();
+//        exercise_3_9();
+//        exercise_3_10();
+//        exercise_3_11();
+//        exercise_3_12();
+//        programmeringuppgift_3_1();
+//        programmeringuppgift_3_2();
+//        programmeringuppgift_3_3();
+//        programmeringuppgift_3_4();
+//        programmeringuppgift_3_5();
     }
 
     public static void exercise_3_1() {
@@ -110,6 +110,7 @@ public class Kapitel_3 {
 
     public static void exercise_3_10() {
         System.out.println(Math.cos(Math.PI));
+        System.out.println("*********************************");
     }
 
     public static void exercise_3_11() {
@@ -191,6 +192,7 @@ public class Kapitel_3 {
         } finally {
             sc.close();
         }
+        System.out.println("*********************************");
     }
 
     public static void programmeringuppgift_3_4() {
@@ -216,6 +218,7 @@ public class Kapitel_3 {
         } finally {
             sc.close();
         }
+        System.out.println("*********************************");
     }
 
     public static void programmeringuppgift_3_5() {
@@ -229,5 +232,6 @@ public class Kapitel_3 {
 
         double rest = n0 * Math.exp(-lambda * t);
         System.out.println("Det återstår " + rest + " %");
+        System.out.println("*********************************");
     }
 }
