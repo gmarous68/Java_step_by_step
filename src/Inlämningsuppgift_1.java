@@ -62,8 +62,8 @@ public class Inlämningsuppgift_1 {
                     else break;
                 }
 
-                // if everything ok - start here to substract characters
-                // first character might be '-' - allowed and start while loop below at idx 1
+                // if everything ok - start here to subtract characters
+                // first character might be '-': is allowed and start while loop below at idx 1
                 if (input.charAt(0) == '-') {
                     op1 += input.charAt(0);
                     idx = 1;
@@ -94,7 +94,10 @@ public class Inlämningsuppgift_1 {
                     case '-' -> sum = operand1 - operand2;
                     case '*' -> sum = operand1 * operand2;
                     case '/' -> sum = operand1 / operand2;
-                    default -> JOptionPane.showMessageDialog(null, "Not able to compute!");
+                    default -> {
+                        JOptionPane.showMessageDialog(null, "Not able to compute!");
+                        return;
+                    }
                 }
                 message = "Sum of " + operand1 + " " + operator + " " + operand2 + " = " + sum;
                 JOptionPane.showMessageDialog(null, message);
