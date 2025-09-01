@@ -9,6 +9,6 @@ public class Main {
 //        MiscCode.ternaryOp();
 //        MiscCode.newSwitch();
 //        Inlämningsuppgift_1.del_1();
-        Inlämningsuppgift_1.del_2();
+//        Inlämningsuppgift_1.del_2();
     }
 }
