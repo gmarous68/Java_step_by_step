@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.time.LocalDateTime;
 
 public class Kapitel_1 {
-    public static void App(String fName, int tlfNo) {
+    public static void app(String fName, int tlfNo) {
 //        exercise_1_6(fName, tlfNo);
 //        exercise_1_7(fName, tlfNo);
 //        printOtherStuff();

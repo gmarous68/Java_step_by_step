@@ -3,6 +3,10 @@ import java.util.UnknownFormatConversionException;
 
 
 public class Inlämningsuppgift_1 {
+    public static void main(String[] args) {
+        del_1();
+        del_2();
+    }
 
     public static void del_1() {
         /**
@@ -13,21 +17,21 @@ public class Inlämningsuppgift_1 {
          */
 
         try {
-            double bredd = Double.parseDouble(JOptionPane.showInputDialog("Tast in bredd i meter på fönstret: "));
-            double höjd = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd i meter på fönstret: "));
-            double prisPerKvadrat =
+            double width = Double.parseDouble(JOptionPane.showInputDialog("Tast in bredd i meter på fönstret: "));
+            double hight = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd i meter på fönstret: "));
+            double priceSqrMeters =
                     Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (i kr/m²: "));
 
-            double KostUtanRabatt = bredd * höjd * prisPerKvadrat;
+            double KostUtanRabatt = width * hight * priceSqrMeters;
             int rabatt = (KostUtanRabatt > 5000) ? 25 : (KostUtanRabatt > 2500) ? 10 : 5;
-            double KostMedRabatt = KostUtanRabatt - (KostUtanRabatt * rabatt / 100);
+            double CostWithDiscount = KostUtanRabatt - (KostUtanRabatt * rabatt / 100);
 
-            String result = "Bredd: " + String.format("%.2f", bredd) + " meter\n" +
-                    "Höjd: " + String.format("%.2f", höjd) + " meter\n" +
-                    "Pris per kvadratmeter: " + String.format("%.2f", prisPerKvadrat) + " kr\n" +
+            String result = "Bredd: " + String.format("%.2f", width) + " meter\n" +
+                    "Höjd: " + String.format("%.2f", hight) + " meter\n" +
+                    "Pris per kvadratmeter: " + String.format("%.2f", priceSqrMeters) + " kr\n" +
                     "Ursprunglig kostnad:  " + String.format("%.2f", KostUtanRabatt) + " kr\n" +
                     "Rabatt: " + rabatt + "%\n" +
-                    "Slutkostnad: " + String.format("%.2f", KostMedRabatt) + " kr";
+                    "Slutkostnad: " + String.format("%.2f", CostWithDiscount) + " kr";
             JOptionPane.showMessageDialog(null, result);
         } catch (NullPointerException e) {
             JOptionPane.showMessageDialog(null, "Cancelled operation!");
@@ -45,9 +49,8 @@ public class Inlämningsuppgift_1 {
         int NoOfOperators = 0;
         char operator = ' ';
 
-        //try/catch - if cancel or x pressed, or zero division
+        //try/catch - if cancel or x pressed, or zero division/parse errors
         try {
-
             String output = "Tast in två operander med en operator i mellan som beskrevet nedanför\n"
                     + "\"Giltiga uttryck: 1+2 , -200-100 , 2*5.5 , 10/2\"";
             String input = JOptionPane.showInputDialog(output);
@@ -82,6 +85,8 @@ public class Inlämningsuppgift_1 {
             }
 
             // Build operators & operand
+            input = input.replace(",", ".");
+
             for (int i = 0; i < input.length(); i++) {
                 // string starts with minus - allowed and not counted in total NoOfOperators
                 if (i == 0 && input.charAt(i) == '-') {
@@ -124,7 +129,7 @@ public class Inlämningsuppgift_1 {
             // if pressed cancel or x
             JOptionPane.showMessageDialog(null, "Cancelled operation!");
         } catch (NumberFormatException e) {
-            // if pressed cancel or x
+            // if alpha characters in string to number parse
             JOptionPane.showMessageDialog(null, "Not able to parse to number!!");
         } catch (ArithmeticException e) {
             // if divided by 0

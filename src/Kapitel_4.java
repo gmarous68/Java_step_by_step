@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Kapitel_4 {
-    public static void App() {
+    public static void app() {
 //        exercise_4_1();
 //        exercise_4_2();
 //        exercise_4_3();
@@ -58,21 +58,21 @@ public class Kapitel_4 {
 
     public static void exercise_4_3() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Betyg på mattetest?: ");
-        String betyg = sc.next().toUpperCase();
-        sc.nextLine();
-        if (betyg.equals("A"))
-            System.out.println("45 poeng!");
-        else if (betyg.equals("B"))
-            System.out.println("40 poeng!");
-        else if (betyg.equals("C"))
-            System.out.println("35 poeng!");
-        else if (betyg.equals("D"))
-            System.out.println("30 poeng!");
-        else if (betyg.equals("E"))
-            System.out.println("25 poeng!");
+        System.out.println("Poeng på mattetest?: ");
+        int score = sc.nextInt();
+
+        if (score < 25)
+            System.out.println("Betyg F!");
+        else if (score < 30)
+            System.out.println("Betyg E!");
+        else if (score < 35)
+            System.out.println("Betyg D!");
+        else if (score < 40)
+            System.out.println("Betyg C!");
+        else if (score < 45)
+            System.out.println("Betyg B!");
         else
-            System.out.println("Ugyldig bokstav.");
+            System.out.println("Betyg A!");
         System.out.println("*********************************");
     }
 

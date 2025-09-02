@@ -4,10 +4,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Kapitel_3 {
-    public static void App() {
+    public static void app() {
 //        exercise_3_1();
 //        exercise_3_2();
-//        exercise_3_6();
+        exercise_3_6();
 //        exercise_3_7();
 //        exercise_3_8();
 //        exercise_3_9();
@@ -55,7 +55,7 @@ public class Kapitel_3 {
         int moms = sc.nextInt();
 
         System.out.println("Pris utan moms: " + pris);
-        pris += (pris * moms) / 100;
+        pris += (pris * moms) / 100.0;
         System.out.println("Pris med moms: " + pris);
         sc.close();
         System.out.println("*********************************");
@@ -98,13 +98,11 @@ public class Kapitel_3 {
     }
 
     public static void exercise_3_9() {
-        int i = (int) (Math.random() * 7);
-        System.out.println("Math class result: " + i);
+        System.out.println("Math class result: " + (int) ((Math.random() * 6) + 1));
         System.out.println("*********************************");
 
         Random ran = new Random();
-        i = ran.nextInt(1, 7);
-        System.out.println("Random class result: " + i);
+        System.out.println("Random class result: " + ran.nextInt(1, 7));
         System.out.println("*********************************");
     }
 
@@ -135,7 +133,8 @@ public class Kapitel_3 {
             a = Double.parseDouble(JOptionPane.showInputDialog("Första sidan?  "));
             b = Double.parseDouble(JOptionPane.showInputDialog("Andra sidan?  "));
 
-            c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+            //c = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+            c = Math.hypot(a, b);
             String formattedStr = String.format("%.2f", c);
 
             JOptionPane.showMessageDialog(null, "Hypotenusans längd är: " + formattedStr);

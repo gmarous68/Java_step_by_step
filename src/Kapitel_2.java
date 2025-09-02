@@ -14,7 +14,7 @@ comment
  */
 
 public class Kapitel_2 {
-    public static void App() {
+    public static void app() {
 //        textBlockTest();
 //        exercise_2_2();
 //        exercise_2_3();

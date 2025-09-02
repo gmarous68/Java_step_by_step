@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.util.Scanner;
 
+
 public class MiscCode {
     public static void fibonacci(int x) {
         /* Print the Fibonacci sequence for values <= x */
@@ -13,6 +14,20 @@ public class MiscCode {
             lo = hi - lo;
         }
         System.out.println();
+    }
+
+    public static void momsCompute() {
+        double itemPriceDouble = Double.parseDouble(JOptionPane.showInputDialog("Vad är varans totala pris?"));
+        int taxRateDouble = Integer.parseInt(JOptionPane.showInputDialog("Vad är momsen i heltal?"));
+
+        //double itemPriceDoubleWithoutTax = itemPriceDouble / (1 + (double)taxRateDouble / 100);
+        //double momsPrice = itemPriceDouble - itemPriceDoubleWithoutTax;
+        double momsPrice = itemPriceDouble / (taxRateDouble * 0.01 +1);
+        double moms = itemPriceDouble - momsPrice;
+
+
+        JOptionPane.showMessageDialog(null,"Varans pris exkl. moms: " + String.format("%.2f",momsPrice) +
+                "\n" + "Momspriset: " + String.format("%.2f", moms));
     }
 
     public static void leapYear() {
