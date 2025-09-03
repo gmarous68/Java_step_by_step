@@ -23,12 +23,12 @@ public class Kapitel_4 {
 //        programmeringUppgifter_4_5();
     }
 
-    public static void exercise_4_1() {
-        /*int temp = Integer.parseInt(JOptionPane.showInputDialog("Temp: ? "));
+    private static void exercise_4_1() {
+        int temp = Integer.parseInt(JOptionPane.showInputDialog("Temp: ? "));
         if(temp < 18) {
             Toolkit.getDefaultToolkit().beep();
             System.out.println("Temp is less than 18 degrees.");
-        }*/
+        }
 
         var sc = new Scanner(System.in);
         System.out.println("Hur många gram godis? ");
@@ -42,7 +42,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_4_2() {
+    private static void exercise_4_2() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Price annual membership: ");
         double priceYear = sc.nextDouble();
@@ -56,7 +56,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_4_3() {
+    private static void exercise_4_3() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Poeng på mattetest?: ");
         int score = sc.nextInt();
@@ -76,7 +76,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_4_5() {
+    private static void exercise_4_5() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Brevets längd: ");
         int l = sc.nextInt();
@@ -92,7 +92,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_4_8() {
+    private static void exercise_4_8() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Person nummer för person 1: ");
         String a = sc.nextLine();
@@ -121,7 +121,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_4_9() {
+    private static void exercise_4_9() {
         Scanner sc = new Scanner(System.in);
         Collator cl = Collator.getInstance();
         cl.setStrength(Collator.PRIMARY);
@@ -141,7 +141,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_4_10() {
+    private static void exercise_4_10() {
         String[] timeOfDay = {"dagtid", "kväll"};
         try {
             int minuteLength =
@@ -164,7 +164,7 @@ public class Kapitel_4 {
         }
     }
 
-    public static void exercise_4_11() {
+    private static void exercise_4_11() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Type in personal number: ");
         String strPno = sc.nextLine();
@@ -189,7 +189,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_4_12() {
+    private static void exercise_4_12() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Type in personal number: ");
         String strPno = sc.nextLine();
@@ -208,7 +208,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringUppgifter_4_1() {
+    private static void programmeringUppgifter_4_1() {
         try {
             int minuteLength =
                     Integer.parseInt(JOptionPane.showInputDialog("Hur länge skal du ringa pr. månad i min? "));
@@ -229,7 +229,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringUppgifter_4_2() {
+    private static void programmeringUppgifter_4_2() {
         try {
             int radie = Integer.parseInt(JOptionPane.showInputDialog("Tast in Cirkels radie: "));
             if (radie > 0) {
@@ -248,7 +248,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringUppgifter_4_3() {
+    private static void programmeringUppgifter_4_3() {
         try {
             String strPno = JOptionPane.showInputDialog("Tast in postnummer: ");
             int intPnr = Integer.parseInt(strPno.substring(0,2));
@@ -266,7 +266,7 @@ public class Kapitel_4 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringUppgifter_4_4() {
+    private static void programmeringUppgifter_4_4() {
         DateTimeFormatter formatted = DateTimeFormatter.ofPattern("MMdd");
         String getDateNow = LocalDateTime.now().format(formatted);
 
@@ -293,7 +293,7 @@ public class Kapitel_4 {
         }
     }
 
-    public static void programmeringUppgifter_4_5() {
+    private static void programmeringUppgifter_4_5() {
         // Cosinussatsen lyder: a2=b2+c2−2bc⋅cosα
         double a, b, c;
         double d = 1e-10;

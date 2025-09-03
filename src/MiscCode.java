@@ -61,4 +61,42 @@ public class MiscCode {
         };
         System.out.println(month + " has " + days + " days!");
     }
+
+    public static void antBlank() {
+        int summa = 0;
+        String text = JOptionPane.showInputDialog("Tasta in en sträng: ");
+
+        for(int i=0; i<text.length(); i++) {
+            if(Character.isWhitespace(text.charAt(i)))
+                summa++;
+        }
+        JOptionPane.showMessageDialog(null, "Antal blanka tecken: " + summa);
+    }
+
+    public static void bankProgram() {
+        int procent = Integer.parseInt(JOptionPane.showInputDialog("Skriva in procent: "));
+        int antYear  = Integer.parseInt(JOptionPane.showInputDialog("Skriva in ant år: "));
+
+        StringBuilder str = new StringBuilder("År    Kapital\n");
+        double summa = 1000;
+
+        for(int i=0; i<antYear; i++) {
+            summa += (summa * procent) / 100;
+            str.append((i+1)).append("     ").append(String.format("%.2f", summa)).append(" kr\n");
+        }
+        JOptionPane.showMessageDialog(null, str);
+    }
+
+    public static void dubleSalary() {
+        double salary = 0.01;
+        final int MAX_SUM = 10_000_000;
+        int days = 1;
+
+        while(salary <= MAX_SUM) {
+            salary *= 2;
+            days++;
+        }
+        JOptionPane.showMessageDialog(null,
+                "No. of days work until reached " + MAX_SUM + " is: " + days);
+    }
 }

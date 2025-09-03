@@ -10,5 +10,8 @@ public class Main {
 //        MiscCode.ternaryOp();
 //        MiscCode.newSwitch();
 //        MiscCode.momsCompute();
+//        MiscCode.antBlank();
+//        MiscCode.bankProgram();
+//        MiscCode.dubleSalary();
     }
 }

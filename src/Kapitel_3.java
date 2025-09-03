@@ -7,7 +7,7 @@ public class Kapitel_3 {
     public static void app() {
 //        exercise_3_1();
 //        exercise_3_2();
-        exercise_3_6();
+//        exercise_3_6();
 //        exercise_3_7();
 //        exercise_3_8();
 //        exercise_3_9();
@@ -21,7 +21,7 @@ public class Kapitel_3 {
 //        programmeringuppgift_3_5();
     }
 
-    public static void exercise_3_1() {
+    private static void exercise_3_1() {
         int i;
         double d;
         byte b;
@@ -33,7 +33,7 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_3_2() {
+    private static void exercise_3_2() {
         int i;
         double d;
         byte b;
@@ -46,7 +46,7 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_3_6() {
+    private static void exercise_3_6() {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Skriv in priset på varan: ");
@@ -61,7 +61,7 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_3_7() {
+    private static void exercise_3_7() {
         int i;
         double d;
         byte b;
@@ -81,7 +81,7 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_3_8() {
+    private static void exercise_3_8() {
         String[] weekDays = {"måndag", "tisdag", "onsdag", "torsdag", "fredag", "lördag", "söndag"};
         Scanner sc = new Scanner(System.in);
         double temp;
@@ -97,7 +97,7 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_3_9() {
+    private static void exercise_3_9() {
         System.out.println("Math class result: " + (int) ((Math.random() * 6) + 1));
         System.out.println("*********************************");
 
@@ -106,12 +106,12 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_3_10() {
+    private static void exercise_3_10() {
         System.out.println(Math.cos(Math.PI));
         System.out.println("*********************************");
     }
 
-    public static void exercise_3_11() {
+    private static void exercise_3_11() {
         try {
             double pris = Double.parseDouble(JOptionPane.showInputDialog("Skriv in priset på varan: "));
             int moms = Integer.parseInt(JOptionPane.showInputDialog("Skriv in % moms på varan: "));
@@ -127,7 +127,7 @@ public class Kapitel_3 {
         }
     }
 
-    public static void exercise_3_12() {
+    private static void exercise_3_12() {
         double a, b, c;
         try {
             a = Double.parseDouble(JOptionPane.showInputDialog("Första sidan?  "));
@@ -143,7 +143,7 @@ public class Kapitel_3 {
         }
     }
 
-    public static void programmeringuppgift_3_1() {
+    private static void programmeringuppgift_3_1() {
         double radie, volym, area;
         try {
             radie = Double.parseDouble(JOptionPane.showInputDialog("Tast in Sfärens radie: "));
@@ -162,7 +162,7 @@ public class Kapitel_3 {
         }
     }
 
-    public static void programmeringuppgift_3_2() {
+    private static void programmeringuppgift_3_2() {
         // C = (F-32) X 5 / 9
         try {
             double fahrenheit = Double.parseDouble(JOptionPane.showInputDialog("Type in temperature in fahrenheit: "));
@@ -174,7 +174,7 @@ public class Kapitel_3 {
         }
     }
 
-    public static void programmeringuppgift_3_3() {
+    private static void programmeringuppgift_3_3() {
         final double MILES_TO_KM = 1.609; // km
         final double GALLON_TO_LTR = 3.785; // liter
         Scanner sc = new Scanner(System.in);
@@ -194,7 +194,7 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringuppgift_3_4() {
+    private static void programmeringuppgift_3_4() {
         double x1, x2, y1, y2;
         Scanner sc = new Scanner(System.in);
 
@@ -220,7 +220,7 @@ public class Kapitel_3 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringuppgift_3_5() {
+    private static void programmeringuppgift_3_5() {
         var scan = new Scanner(System.in);
 
         System.out.print("Antal år? ");

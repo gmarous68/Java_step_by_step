@@ -28,7 +28,7 @@ public class Kapitel_2 {
 //        programmeringuppgift_2_4();
     }
 
-    public static void textBlockTest() {
+    private static void textBlockTest() {
         String s = """
                 Första rad
                 Rad 2
@@ -37,7 +37,7 @@ public class Kapitel_2 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_2_2() {
+    private static void exercise_2_2() {
         String name = "Gerald";
         String address = "Hemma i Stockholm";
         int telefonNo = 123456789;
@@ -47,7 +47,7 @@ public class Kapitel_2 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_2_3() {
+    private static void exercise_2_3() {
         String fNamn, eNamn, hälsning;
 
         System.out.print("Vad heter du till förnamn? ");
@@ -64,20 +64,20 @@ public class Kapitel_2 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_2_6() {
+    private static void exercise_2_6() {
         char c1 = 216, c2 = 248;
         System.out.println("Danska och Norska bokstaver: " + c1 + " " + c2);
         System.out.println("*********************************");
     }
 
-    public static void exercise_2_7() {
+    private static void exercise_2_7() {
         String a = "Programspråk";
         String b = a.substring(4, 8) + a.charAt(5);
         System.out.println(b);
         System.out.println("*********************************");
     }
 
-    public static void exercise_2_8() {
+    private static void exercise_2_8() {
         String a = " Erik Andersson 860314-2714 ";
         a = a.trim();
         int i = a.lastIndexOf(" ") + 1;
@@ -91,7 +91,7 @@ public class Kapitel_2 {
         System.out.println("*********************************");
     }
 
-    public static void exercise_2_11() {
+    private static void exercise_2_11() {
         String text = "Välkommen ";
         String fName = JOptionPane.showInputDialog("Skriv in ditt förnamn:");
         String eName = JOptionPane.showInputDialog("Skriv in ditt efternamn:");
@@ -99,14 +99,14 @@ public class Kapitel_2 {
         JOptionPane.showMessageDialog(null, text);
     }
 
-    public static void programmeringuppgift_2_1() {
+    private static void programmeringuppgift_2_1() {
         DateTimeFormatter formatted = DateTimeFormatter.ofPattern("hh:mm:ss");
         String time = LocalDateTime.now().format(formatted);
         System.out.println("Time now is: " + time);
 
     }
 
-    public static void programmeringuppgift_2_2() {
+    private static void programmeringuppgift_2_2() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Skriv in ditt namn enligt modellen - \"efternamn, förnamn:\" ");
         String namn = sc.nextLine();
@@ -115,7 +115,7 @@ public class Kapitel_2 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringuppgift_2_3() {
+    private static void programmeringuppgift_2_3() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Skriv in ditt namn enligt modellen - \"efternamn, förnamn:\" ");
         sc.next();
@@ -124,7 +124,7 @@ public class Kapitel_2 {
         System.out.println("*********************************");
     }
 
-    public static void programmeringuppgift_2_4() {
+    private static void programmeringuppgift_2_4() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Skriv in en mening bestående av minst två ord: ");
         String text = sc.nextLine();

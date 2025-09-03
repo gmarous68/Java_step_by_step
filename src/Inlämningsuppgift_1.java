@@ -4,11 +4,11 @@ import java.util.UnknownFormatConversionException;
 
 public class Inlämningsuppgift_1 {
     public static void main(String[] args) {
-        del_1();
+//        del_1();
         del_2();
     }
 
-    public static void del_1() {
+    private static void del_1() {
         /**
          * Beräkna kostnaden för fönstren beroende på deras storlek.
          * Kostnaden beräknas med formeln: Kostnad = Bredd(m) * Höjd(m) * Pris per kvadratmeter(kr/m2)
@@ -41,90 +41,78 @@ public class Inlämningsuppgift_1 {
     }
 
 
-    public static void del_2() {
+    private static void del_2() {
         /**
          * Skapa en enkel miniräknare som beräknar de fyra räknesätten
          */
         String op1 = "", op2 = "";
-        int NoOfOperators = 0;
         char operator = ' ';
+        int option = -1;
 
         //try/catch - if cancel or x pressed, or zero division/parse errors
         try {
-            String output = "Tast in två operander med en operator i mellan som beskrevet nedanför\n"
-                    + "\"Giltiga uttryck: 1+2 , -200-100 , 2*5.5 , 10/2\"";
-            String input = JOptionPane.showInputDialog(output);
+            do {
+                String output = "Tast in två operander med en operator i mellan som beskrevet nedanför\n"
+                        + "\"Giltiga uttryck: 1+2 , -200-100 , 2*5.5 , 10/2\"";
+                String input = JOptionPane.showInputDialog(output);
 
-            // check for empty string
-            if (input.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "String is empty!");
-                return;
-            }
-
-            // Modulus not allowed
-            if(input.contains("%")) {
-                JOptionPane.showMessageDialog(null, "Modulus not allowed!");
-                return;
-            }
-
-            // count the number of operators - only 1 allowed
-            for (int i=0; i<input.length(); i++) {
-                // first character might be '-' = is allowed. Not counted in total
-                if (i == 0 && input.charAt(i) == '-')
-                    continue;
-
-                switch (input.charAt(i)) {
-                    case '*': case '/': case '-': case '+': NoOfOperators++;
-                }
-            }
-
-            // No of operator found in string is 0 or > 1
-            if (NoOfOperators != 1) {
-                JOptionPane.showMessageDialog(null, "No of operator is 0 or exceeds 1!");
-                return;
-            }
-
-            // Build operators & operand
-            input = input.replace(",", ".");
-
-            for (int i = 0; i < input.length(); i++) {
-                // string starts with minus - allowed and not counted in total NoOfOperators
-                if (i == 0 && input.charAt(i) == '-') {
-                    op1 += input.charAt(0);
-                    continue;
-                }
-
-                // read digits until it reaches operator and assign operand 1
-                if (Character.isDigit(input.charAt(i)) || input.charAt(i) == '.') {
-                    op1 += input.charAt(i);
-                    continue;
-                }
-
-                // after digit(s) - operator is considered present in index i
-                operator = input.charAt(i);
-                // extract and assume the rest are digits - operand 2
-                op2 = input.substring(i + 1);
-                break;
-            }
-
-            // convert string values to double in order to compute
-            int operand1 = Integer.parseInt(op1);
-            int operand2 = Integer.parseInt(op2);
-            double sum = 0;
-
-            // figure out the operator to compute with and calculate sum
-            switch (operator) {
-                case '+' -> sum = operand1 + operand2;
-                case '-' -> sum = operand1 - operand2;
-                case '*' -> sum = operand1 * operand2;
-                case '/' -> sum = operand1 / operand2;
-                default -> {
-                    JOptionPane.showMessageDialog(null, "Not able to compute!");
+                // check for empty string
+                if (input.isEmpty()) {
+                    JOptionPane.showMessageDialog(null, "String is empty!");
                     return;
                 }
-            }
-            String message = "Sum of " + operand1 + " " + operator + " " + operand2 + " = " + sum;
-            JOptionPane.showMessageDialog(null, message);
+
+                // Replace comma with dot, and remove all whitespaces
+                input = input.replace(",", ".");
+                input = input.replace(" ", "");
+
+                // Check for errors and discrepancy in input string
+                if (!checkIsValidString(input))
+                    return;
+
+                // if checkIsValidString = true, Build operators & operand
+                for (int i = 0; i < input.length(); i++) {
+                    // string starts with minus - allowed and not counted in total NoOfOperators
+                    if (i == 0 && input.charAt(i) == '-') {
+                        op1 += input.charAt(0);
+                        continue;
+                    }
+
+                    // read digits until it reaches operator and assign operand 1
+                    if (Character.isDigit(input.charAt(i)) || input.charAt(i) == '.') {
+                        op1 += input.charAt(i);
+                        continue;
+                    }
+
+                    // after digit(s) - operator is considered present in index i
+                    operator = input.charAt(i);
+                    // extract and assume the rest are digits - operand 2
+                    op2 = input.substring(i + 1);
+                    break;
+                }
+
+                // convert string values to double in order to compute
+                double operand1 = Double.parseDouble(op1);
+                double operand2 = Double.parseDouble(op2);
+                double sum = 0;
+
+                // figure out the operator to compute with and calculate sum
+                switch (operator) {
+                    case '+' -> sum = operand1 + operand2;
+                    case '-' -> sum = operand1 - operand2;
+                    case '*' -> sum = operand1 * operand2;
+                    case '/' -> sum = operand1 / operand2;
+                    default -> {
+                        JOptionPane.showMessageDialog(null, "Not able to compute!");
+                        return;
+                    }
+                }
+                String message = "Sum of " + operand1 + " " + operator + " " + operand2 + " = " + sum;
+                JOptionPane.showMessageDialog(null, message);
+
+                // if yes - start over again
+                option = JOptionPane.showConfirmDialog(null, "Nytt forsök? ");
+            } while (option == JOptionPane.YES_OPTION);
         } catch (NullPointerException e) {
             // if pressed cancel or x
             JOptionPane.showMessageDialog(null, "Cancelled operation!");
@@ -135,5 +123,33 @@ public class Inlämningsuppgift_1 {
             // if divided by 0
             JOptionPane.showMessageDialog(null, "Division by 0 not allowed!");
         }
+    }
+
+    private static boolean checkIsValidString(String input) {
+        int NoOfOperators = 0;
+
+        // Modulus not allowed
+        if(input.contains("%")) {
+            JOptionPane.showMessageDialog(null, "Modulus not allowed!");
+            return false;
+        }
+
+        // count the number of operators - only 1 allowed
+        for (int i=0; i<input.length(); i++) {
+            // first character might be '-' = is allowed. Not counted in total
+            if (i == 0 && input.charAt(i) == '-')
+                continue;
+
+            switch (input.charAt(i)) {
+                case '*': case '/': case '-': case '+': NoOfOperators++;
+            }
+        }
+
+        // No of operator found in string is 0 or > 1
+        if (NoOfOperators != 1) {
+            JOptionPane.showMessageDialog(null, "No of operator is 0 or exceeds 1!");
+            return false;
+        }
+        return true;
     }
 }
