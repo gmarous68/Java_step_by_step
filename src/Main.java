@@ -12,6 +12,5 @@ public class Main {
 //        MiscCode.momsCompute();
 //        MiscCode.antBlank();
 //        MiscCode.bankProgram();
-//        MiscCode.dubleSalary();
     }
 }
