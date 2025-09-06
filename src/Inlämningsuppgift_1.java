@@ -1,4 +1,6 @@
 import javax.swing.JOptionPane;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.UnknownFormatConversionException;
 
 
@@ -16,30 +18,36 @@ public class Inlämningsuppgift_1 {
          * höjd och pris per kvadratmeter, och rabatt beroende på den totala kostnaden.
          */
 
-        try {
-            double width = Double.parseDouble(JOptionPane.showInputDialog("Tast in bredd i meter på fönstret: "));
-            double hight = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd i meter på fönstret: "));
-            double priceSqrMeters =
-                    Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (i kr/m²: "));
+        boolean tryAgain = true;
+        while (tryAgain) {
+            try {
+                double width = Double.parseDouble(JOptionPane.showInputDialog("Tast in bredd i meter på fönstret: "));
+                double hight = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd i meter på fönstret: "));
+                double priceSqrMeters =
+                        Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (i kr/m²: "));
+                tryAgain = false;
 
-            double KostUtanRabatt = width * hight * priceSqrMeters;
-            int rabatt = (KostUtanRabatt > 5000) ? 25 : (KostUtanRabatt > 2500) ? 10 : 5;
-            double CostWithDiscount = KostUtanRabatt - (KostUtanRabatt * rabatt / 100);
+                double KostUtanRabatt = width * hight * priceSqrMeters;
+                int rabatt = (KostUtanRabatt > 5000) ? 25 : (KostUtanRabatt > 2500) ? 10 : 5;
+                double CostWithDiscount = KostUtanRabatt - (KostUtanRabatt * rabatt / 100);
 
-            String result = "Bredd: " + String.format("%.2f", width) + " meter\n" +
-                    "Höjd: " + String.format("%.2f", hight) + " meter\n" +
-                    "Pris per kvadratmeter: " + String.format("%.2f", priceSqrMeters) + " kr\n" +
-                    "Ursprunglig kostnad:  " + String.format("%.2f", KostUtanRabatt) + " kr\n" +
-                    "Rabatt: " + rabatt + "%\n" +
-                    "Slutkostnad: " + String.format("%.2f", CostWithDiscount) + " kr";
-            JOptionPane.showMessageDialog(null, result);
-        } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(null, "Cancelled operation!");
-        } catch (NumberFormatException | UnknownFormatConversionException e) {
-            JOptionPane.showMessageDialog(null, "Wrong format!");
+                String result = "Bredd: " + String.format("%.2f", width) + " meter\n" +
+                        "Höjd: " + String.format("%.2f", hight) + " meter\n" +
+                        "Pris per kvadratmeter: " + String.format("%.2f", priceSqrMeters) + " kr\n" +
+                        "Ursprunglig kostnad:  " + String.format("%.2f", KostUtanRabatt) + " kr\n" +
+                        "Rabatt: " + rabatt + "%\n" +
+                        "Slutkostnad: " + String.format("%.2f", CostWithDiscount) + " kr";
+                JOptionPane.showMessageDialog(null, result);
+
+            } catch (NullPointerException e) {
+                JOptionPane.showMessageDialog(null, "Cancelled operation!");
+            } catch (NumberFormatException | UnknownFormatConversionException | InputMismatchException e) {
+                JOptionPane.showMessageDialog(null, "Wrong format!");
+            } catch (NoSuchElementException e) {
+                System.exit(0);
+            }
         }
     }
-
 
     private static void del_2() {
         /**
@@ -66,8 +74,8 @@ public class Inlämningsuppgift_1 {
                 input = input.replace(",", ".");
                 input = input.replace(" ", "");
 
-                // Check for errors and discrepancy in input string
-                if (!checkIsValidString(input))
+                // Check for illegal operator and/or no of operators
+                if (!checkIsValidOperators(input))
                     return;
 
                 // if checkIsValidString = true, Build operators & operand
@@ -125,23 +133,27 @@ public class Inlämningsuppgift_1 {
         }
     }
 
-    private static boolean checkIsValidString(String input) {
+    private static boolean checkIsValidOperators(String input) {
         int NoOfOperators = 0;
 
         // Modulus not allowed
-        if(input.contains("%")) {
+        if (input.contains("%")) {
             JOptionPane.showMessageDialog(null, "Modulus not allowed!");
             return false;
         }
 
         // count the number of operators - only 1 allowed
-        for (int i=0; i<input.length(); i++) {
+        for (int i = 0; i < input.length(); i++) {
             // first character might be '-' = is allowed. Not counted in total
             if (i == 0 && input.charAt(i) == '-')
                 continue;
 
             switch (input.charAt(i)) {
-                case '*': case '/': case '-': case '+': NoOfOperators++;
+                case '*':
+                case '/':
+                case '-':
+                case '+':
+                    NoOfOperators++;
             }
         }
 
