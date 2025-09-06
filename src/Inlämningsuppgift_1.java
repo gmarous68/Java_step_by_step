@@ -25,6 +25,9 @@ public class Inlämningsuppgift_1 {
                 double hight = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd i meter på fönstret: "));
                 double priceSqrMeters =
                         Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (i kr/m²: "));
+
+                // if parse above ok and end up here, then exit while loop when done print result.
+                // Otherwise program triggers catch statement and tryAgain is still true.
                 tryAgain = false;
 
                 double KostUtanRabatt = width * hight * priceSqrMeters;
@@ -74,7 +77,7 @@ public class Inlämningsuppgift_1 {
                 input = input.replace(",", ".");
                 input = input.replace(" ", "");
 
-                // Check for illegal operator and/or no of operators
+                // Check for illegal operator, to many and 0 operators
                 if (!checkIsValidOperators(input))
                     return;
 
@@ -99,7 +102,8 @@ public class Inlämningsuppgift_1 {
                     break;
                 }
 
-                // convert string values to double in order to compute
+                // convert string values to double if possible in order to compute
+                // otherwise catch statement is triggered
                 double operand1 = Double.parseDouble(op1);
                 double operand2 = Double.parseDouble(op2);
                 double sum = 0;
@@ -121,6 +125,7 @@ public class Inlämningsuppgift_1 {
                 // if yes - start over again
                 option = JOptionPane.showConfirmDialog(null, "Nytt forsök? ");
             } while (option == JOptionPane.YES_OPTION);
+
         } catch (NullPointerException e) {
             // if pressed cancel or x
             JOptionPane.showMessageDialog(null, "Cancelled operation!");
@@ -149,15 +154,11 @@ public class Inlämningsuppgift_1 {
                 continue;
 
             switch (input.charAt(i)) {
-                case '*':
-                case '/':
-                case '-':
-                case '+':
-                    NoOfOperators++;
+                case '*': case '/': case '-': case '+': NoOfOperators++;
             }
         }
 
-        // No of operator found in string is 0 or > 1
+        // Number of operator(s) found in string is 0 or > 1
         if (NoOfOperators != 1) {
             JOptionPane.showMessageDialog(null, "No of operator is 0 or exceeds 1!");
             return false;
