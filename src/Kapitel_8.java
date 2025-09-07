@@ -1,4 +1,4 @@
-import javax.swing.*;
+import javax.swing.JOptionPane;
 import java.util.Scanner;
 
 public class Kapitel_8 {

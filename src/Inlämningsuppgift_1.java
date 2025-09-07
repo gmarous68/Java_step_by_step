@@ -6,7 +6,7 @@ import java.util.UnknownFormatConversionException;
 
 public class Inlämningsuppgift_1 {
     public static void main(String[] args) {
-//        del_1();
+        del_1();
         del_2();
     }
 
@@ -21,24 +21,24 @@ public class Inlämningsuppgift_1 {
         boolean tryAgain = true;
         while (tryAgain) {
             try {
-                double width = Double.parseDouble(JOptionPane.showInputDialog("Tast in bredd i meter på fönstret: "));
-                double hight = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd i meter på fönstret: "));
+                double width = Double.parseDouble(JOptionPane.showInputDialog("Tast in bredd i (meter) på fönstret: "));
+                double hight = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd (meter) på fönstret: "));
                 double priceSqrMeters =
-                        Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (i kr/m²: "));
+                        Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (kr/m²): "));
 
-                // if parse above ok and end up here, then exit while loop when done print result.
+                // if parse above ok and end up here, then exit while loop after print result.
                 // Otherwise program triggers catch statement and tryAgain is still true.
                 tryAgain = false;
 
-                double KostUtanRabatt = width * hight * priceSqrMeters;
-                int rabatt = (KostUtanRabatt > 5000) ? 25 : (KostUtanRabatt > 2500) ? 10 : 5;
-                double CostWithDiscount = KostUtanRabatt - (KostUtanRabatt * rabatt / 100);
+                double CostWithoutDiscount = width * hight * priceSqrMeters;
+                int dicount = (CostWithoutDiscount > 5000) ? 25 : (CostWithoutDiscount > 2500) ? 10 : 5;
+                double CostWithDiscount = CostWithoutDiscount - (CostWithoutDiscount * dicount / 100);
 
                 String result = "Bredd: " + String.format("%.2f", width) + " meter\n" +
                         "Höjd: " + String.format("%.2f", hight) + " meter\n" +
                         "Pris per kvadratmeter: " + String.format("%.2f", priceSqrMeters) + " kr\n" +
-                        "Ursprunglig kostnad:  " + String.format("%.2f", KostUtanRabatt) + " kr\n" +
-                        "Rabatt: " + rabatt + "%\n" +
+                        "Ursprunglig kostnad:  " + String.format("%.2f", CostWithoutDiscount) + " kr\n" +
+                        "Rabatt: " + dicount + "%\n" +
                         "Slutkostnad: " + String.format("%.2f", CostWithDiscount) + " kr";
                 JOptionPane.showMessageDialog(null, result);
 
