@@ -114,7 +114,6 @@ public class Inlämningsuppgift_1 {
                 JOptionPane.showMessageDialog(null, "Cancelled operation!");
                 System.exit(0);
             } catch (NumberFormatException e) {
-                // if alpha characters in string to number parse
                 JOptionPane.showMessageDialog(null, "Not able to parse to number!!");
             } catch (ArithmeticException e) {
                 // if divided by 0
