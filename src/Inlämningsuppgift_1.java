@@ -6,25 +6,17 @@ import java.util.UnknownFormatConversionException;
 
 public class Inlämningsuppgift_1 {
     public static void main(String[] args) {
-//        del_1();
+        del_1();
         del_2();
     }
 
     private static void del_1() {
-        /**
-         * Beräkna kostnaden för fönstren beroende på deras storlek.
-         * Kostnaden beräknas med formeln: Kostnad = Bredd(m) * Höjd(m) * Pris per kvadratmeter(kr/m2)
-         * Beräknar kostnaden för ett fönster baserat på användarens inmatningar om fönstrets bredd,
-         * höjd och pris per kvadratmeter, och rabatt beroende på den totala kostnaden.
-         */
-
         boolean tryAgain = true;
         while (tryAgain) {
             try {
                 double width = Double.parseDouble(JOptionPane.showInputDialog("Tast in bredd i (meter) på fönstret: "));
                 double height = Double.parseDouble(JOptionPane.showInputDialog("Tast in höjd (meter) på fönstret: "));
-                double priceSqrMeters =
-                        Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (kr/m²): "));
+                double priceSqrMeters = Double.parseDouble(JOptionPane.showInputDialog("Tast in priset per kvadratmeterglas (kr/m²): "));
 
                 // if parse above ok and end up here, then exit while loop after print result.
                 // Otherwise program triggers catch statement and tryAgain is still true.
@@ -45,7 +37,9 @@ public class Inlämningsuppgift_1 {
             } catch (NullPointerException e) {
                 JOptionPane.showMessageDialog(null, "Cancelled operation!");
                 System.exit(0);
-            } catch (NumberFormatException | UnknownFormatConversionException | InputMismatchException e) {
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Empty string!");
+            } catch (UnknownFormatConversionException | InputMismatchException e) {
                 JOptionPane.showMessageDialog(null, "Wrong format!");
             } catch (NoSuchElementException e) {
                 System.exit(0);
@@ -66,7 +60,6 @@ public class Inlämningsuppgift_1 {
             op1 = "";
             op2 = "";
 
-            //try/catch - if cancel or x pressed, or zero division/parse errors
             try {
                 String output = "Tast in två operander med en operator i mellan som beskrevet nedanför\n"
                         + "\"Giltiga uttryck: 1+2 , -200-100 , 2*5.5 , 10/2\"";
@@ -76,6 +69,10 @@ public class Inlämningsuppgift_1 {
                     option = JOptionPane.YES_OPTION;
                     continue;
                 }
+
+                // Replace comma with dot, and remove all whitespaces
+                input = input.replace(",", ".");
+                input = input.replace(" ", "");
 
                 for (int i = 0; i < input.length(); i++) {
                     // string starts with minus - allowed and not counted in total NoOfOperators
@@ -135,10 +132,6 @@ public class Inlämningsuppgift_1 {
             return false;
         }
 
-        // Replace comma with dot, and remove all whitespaces
-        input = input.replace(",", ".");
-        input = input.replace(" ", "");
-
         // Modulus not allowed
         if (input.contains("%")) {
             JOptionPane.showMessageDialog(null, "Modulus not allowed!");
@@ -152,6 +145,11 @@ public class Inlämningsuppgift_1 {
 
             if(Character.isDigit(input.charAt(i)) || input.charAt(i) == '.')
                 continue;
+
+            if(Character.isLetter(input.charAt(i))) {
+                JOptionPane.showMessageDialog(null, "Characters not allowed!");
+                return false;
+            }
 
             switch (input.charAt(i)) {
                 case '*':
@@ -172,7 +170,6 @@ public class Inlämningsuppgift_1 {
     private static double calculate(String op1, String op2, char operator) {
         double sum = -1;
 
-        // if operand are empty
         if(op1.isEmpty() || op2.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Operand 1 or operand 2 is not set!");
             return sum;

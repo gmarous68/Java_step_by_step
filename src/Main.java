@@ -15,5 +15,7 @@ public class Main {
 //        MiscCode.momsCompute();
 //        MiscCode.antBlank();
 //        MiscCode.bankProgram();
+//        MiscCode.bufferedReaderTest();
+//        MiscCode.scannerTest();
     }
 }
