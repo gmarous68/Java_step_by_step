@@ -113,7 +113,7 @@ public class MiscCode {
         System.out.println("Max value: " + maxValue);
     }
 
-    public static void scannerTest() {
+    public static void scannerTest1() {
         System.out.println("Mata in et antal heltal och tryck på Enter/Retur ");
         System.out.println("Avsluta med tom sträng & Enter ");
         Scanner scan = new Scanner(System.in);
@@ -135,5 +135,16 @@ public class MiscCode {
         }
         System.out.println("Max value: " + maxValue);
         scan.close();
+    }
+
+    public static void scannerTest2() {
+        String s = "2 6 19 -3 6";
+        Scanner sc = new Scanner(s);
+        int sum = 0;
+
+        while(sc.hasNextInt()) {
+            sum += sc.nextInt();
+        }
+        System.out.println("Summa: " + sum);
     }
 }

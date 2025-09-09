@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Kapitel_8.app();
+        Kapitel_9.app();
+//        Kapitel_8.app();
 //        Kapitel_7.app();
 //        Kapitel_6.app();
 //        Kapitel_5.app();
@@ -16,6 +17,7 @@ public class Main {
 //        MiscCode.antBlank();
 //        MiscCode.bankProgram();
 //        MiscCode.bufferedReaderTest();
-//        MiscCode.scannerTest();
+//        MiscCode.scannerTest1();
+//        MiscCode.scannerTest2();
     }
 }
