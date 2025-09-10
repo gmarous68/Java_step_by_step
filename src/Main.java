@@ -21,5 +21,7 @@ public class Main {
 //        MiscCode.scannerTest1();
 //        MiscCode.scannerTest2();
 //        MiscCode.arrayTest();
+//        MiscCode.readFileTest();
+//        MiscCode.fileCopyDemo();
     }
 }

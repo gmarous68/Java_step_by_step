@@ -1,7 +1,5 @@
 import javax.swing.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.Scanner;
 
 
@@ -158,6 +156,43 @@ public class MiscCode {
             for (int j = 0; j < names[1].length; j++) {
                 System.out.println(names[0][i] + names[1][j]);
             }
+        }
+    }
+
+    public static void readFileTest() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("resources/files/namelist.txt"));
+            int rowNo = 0;
+            String row;
+
+            while((row = br.readLine()) != null) {
+                rowNo++;
+                System.out.println(rowNo + ": " + row);
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void fileCopyDemo() {
+        try(BufferedReader input = new BufferedReader(new InputStreamReader(System.in))) {
+            System.out.println("Name of the file: ");
+            String fileName1 = "resources/files/" + input.readLine();
+            BufferedReader inStream = new BufferedReader(new FileReader(fileName1));
+
+            System.out.println("Name of the new file: ");
+            String fileName2 = "resources/files/" + input.readLine();
+            PrintWriter outStream = new PrintWriter(new BufferedWriter(new FileWriter(fileName2)));
+
+            int rowNo = 0;
+            String row;
+            while((row = inStream.readLine()) != null) {
+                 rowNo++;
+                 outStream.println(rowNo + ": " + row);
+            }
+            outStream.close();
+        } catch(IOException e) {
+            System.out.println(e.getMessage());
         }
     }
 }
