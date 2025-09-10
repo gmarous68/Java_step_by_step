@@ -147,4 +147,17 @@ public class MiscCode {
         }
         System.out.println("Summa: " + sum);
     }
+
+    public static void arrayTest() {
+        String[][] names = {
+                {"Mr. ", "Mrs. ", "Ms. "},
+                {"Smith", "Jones"}
+        };
+
+        for (int i = 0; i < names[0].length; i++) {
+            for (int j = 0; j < names[1].length; j++) {
+                System.out.println(names[0][i] + names[1][j]);
+            }
+        }
+    }
 }
