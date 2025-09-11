@@ -4,7 +4,25 @@ import java.util.Scanner;
 
 
 public class MiscCode {
-    public static void fibonacci(int x) {
+    public static void app() {
+//        fibonacci(5);
+//        momsCompute();
+//        leapYear();
+//        ternaryOp();
+//        newSwitch();
+//        antBlank();
+//        bankProgram();
+//        bufferedReaderTest();
+//        scannerTest1();
+//        scannerTest2();
+//        arrayTest();
+//        readFileTest();
+//        fileCopyDemo();
+//        distanceDemo();
+//        rectangleDemo();
+    }
+
+    private static void fibonacci(int x) {
         /* Print the Fibonacci sequence for values <= x */
         int lo = 1, hi = 1;
         System.out.print(lo + " ");
@@ -17,7 +35,7 @@ public class MiscCode {
         System.out.println();
     }
 
-    public static void momsCompute() {
+    private static void momsCompute() {
         double itemPriceDouble = Double.parseDouble(JOptionPane.showInputDialog("Vad är varans totala pris?"));
         int taxRateDouble = Integer.parseInt(JOptionPane.showInputDialog("Vad är momsen i heltal?"));
 
@@ -31,7 +49,7 @@ public class MiscCode {
                 "\n" + "Momspriset: " + String.format("%.2f", moms));
     }
 
-    public static void leapYear() {
+    private static void leapYear() {
         var sc = new Scanner(System.in);
         System.out.println("Type in a year: ");
         int year = sc.nextInt();
@@ -42,14 +60,14 @@ public class MiscCode {
             System.out.println("It's NOT a leap year!");
     }
 
-    public static void ternaryOp() {
+    private static void ternaryOp() {
         int time = Integer.parseInt(JOptionPane.showInputDialog("Tim of day: "));
 
         String message = (time < 18) ? "Good day." : "Good evening.";
         System.out.println(message);
     }
 
-    public static void newSwitch() {
+    private static void newSwitch() {
         String month = JOptionPane.showInputDialog("Which month: (type 3 first letters in month)");
         int days = switch (month.toLowerCase()) {
             case "apr", "jun", "sep", "nov" -> 30;
@@ -63,7 +81,7 @@ public class MiscCode {
         System.out.println(month + " has " + days + " days!");
     }
 
-    public static void antBlank() {
+    private static void antBlank() {
         int summa = 0;
         String text = JOptionPane.showInputDialog("Tasta in en sträng: ");
 
@@ -74,7 +92,7 @@ public class MiscCode {
         JOptionPane.showMessageDialog(null, "Antal blanka tecken: " + summa);
     }
 
-    public static void bankProgram() {
+    private static void bankProgram() {
         int procent = Integer.parseInt(JOptionPane.showInputDialog("Skriva in procent: "));
         int antYear = Integer.parseInt(JOptionPane.showInputDialog("Skriva in ant år: "));
 
@@ -88,7 +106,7 @@ public class MiscCode {
         JOptionPane.showMessageDialog(null, str);
     }
 
-    public static void bufferedReaderTest() {
+    private static void bufferedReaderTest() {
         System.out.println("Mata in et antal heltal och tryck på Enter/Retur ");
         System.out.println("Avsluta med tom sträng & Enter ");
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
@@ -111,7 +129,7 @@ public class MiscCode {
         System.out.println("Max value: " + maxValue);
     }
 
-    public static void scannerTest1() {
+    private static void scannerTest1() {
         System.out.println("Mata in et antal heltal och tryck på Enter/Retur ");
         System.out.println("Avsluta med tom sträng & Enter ");
         Scanner scan = new Scanner(System.in);
@@ -135,7 +153,7 @@ public class MiscCode {
         scan.close();
     }
 
-    public static void scannerTest2() {
+    private static void scannerTest2() {
         String s = "2 6 19 -3 6";
         Scanner sc = new Scanner(s);
         int sum = 0;
@@ -146,7 +164,7 @@ public class MiscCode {
         System.out.println("Summa: " + sum);
     }
 
-    public static void arrayTest() {
+    private static void arrayTest() {
         String[][] names = {
                 {"Mr. ", "Mrs. ", "Ms. "},
                 {"Smith", "Jones"}
@@ -159,7 +177,7 @@ public class MiscCode {
         }
     }
 
-    public static void readFileTest() {
+    private static void readFileTest() {
         try {
             BufferedReader br = new BufferedReader(new FileReader("resources/files/namelist.txt"));
             int rowNo = 0;
@@ -174,7 +192,7 @@ public class MiscCode {
         }
     }
 
-    public static void fileCopyDemo() {
+    private static void fileCopyDemo() {
         try(BufferedReader input = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Name of the file: ");
             String fileName1 = "resources/files/" + input.readLine();
@@ -194,5 +212,90 @@ public class MiscCode {
         } catch(IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static void distanceDemo() {
+        Point pkt1 = new Point();
+        pkt1.x = 0;
+        pkt1.y = 0;
+
+        Point pkt2 = new Point();
+        pkt2.x = 3;
+        pkt2.y = 4;
+
+        System.out.print("Distance between those two points: ");
+        System.out.println(Point.distance(pkt1, pkt2));
+        System.out.println("*********************************");
+
+        Point p3 = Point.midPoint(pkt1, pkt2);
+        System.out.print("Middelpoint between is: ");
+        System.out.println("(" + p3.x + ", " + p3.y + ")");
+    }
+
+    private static void rectangleDemo() {
+        Rectangle r1 = new Rectangle();
+        Rectangle r2 = new Rectangle();
+        try {
+            r1.setHeight(10);
+            r1.setWidth(20);
+            System.out.println(r1.perimeter());
+            System.out.println(r1.area());
+        } catch(IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+}
+
+class Point{
+    double x;
+    double y;
+
+    public static double distance(Point p1, Point p2) {
+        return Math.sqrt(
+                (p1.x - p2.x) * (p1.x - p2.x) +
+                        (p1.y - p2.y) * (p1.y - p2.y)
+        );
+    }
+
+    public static Point midPoint(Point p1, Point p2) {
+        Point p = new Point();
+        p.x = (p1.x + p2.x) / 2;
+        p.y = (p1.y + p2.y) / 2;
+        return p;
+    }
+}
+
+class Rectangle {
+    private double height;
+    private double width;
+
+    public double area() {
+        return height * width;
+    }
+
+    public double perimeter() {
+        return height * 2 + width * 2;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        if (height >= 0)
+            this.height = height;
+        else
+            throw new IllegalArgumentException("Negative height");
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        if (width >= 0)
+            this.width = width;
+        else
+            throw new IllegalArgumentException("Negative width");
     }
 }

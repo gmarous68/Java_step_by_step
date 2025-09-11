@@ -1,0 +1,10 @@
+Google, som från början hade arbetsnamnet Backrup, skapades 1996 av Sergey Brin och Larry Page.
+Det sägs att det var den matematiska termen googol som inspirerade tll namnet ”Google” vilket ändrades till
+”Google!”, med ett utropstecken som sedan försvann igen. Innan Google gjorde sin entré så var AltaVista
+den mest dominerande sökmotorn. Vad som gjorde Google så bra mycket bättre än sina konkurrenter är i
+grunden att sökresultatet blev så mycket bättre, men även andra faktorer spelar in. AltaVista var vid den
+här tiden expansivt och med allt fler tjänster så blev denna forna sökjätte allt långsammare för användarna.
+Google var befriat från banners och andra störande saker. Det som gjorde Googles sökreultat bättre är utan tvekan
+Googles sökalgoritm som ständigt förbättras. I grunden går den ut på att varje webbplats får röster från andra
+webbplatsägare genom länkar. Ju fler länkar ju polulärare sida, vilket ger ett bättre sökresultat. Tekniken för
+detta kallas för PageRank och mannen bakom den idén är Larry Page, en av Googles grundare.

@@ -38,7 +38,7 @@ public class Kapitel_2 {
     }
 
     private static void exercise_2_2() {
-        String name = "Gerald";
+        String name = "Harry";
         String address = "Hemma i Stockholm";
         int telefonNo = 123456789;
 

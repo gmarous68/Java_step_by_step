@@ -1,6 +1,7 @@
 public class Main {
     public static void main(String[] args) {
-        Kapitel_10.app();
+        Kapitel_11.app();
+//        Kapitel_10.app();
 //        Kapitel_9.app();
 //        Kapitel_8.app();
 //        Kapitel_7.app();
@@ -9,19 +10,7 @@ public class Main {
 //        Kapitel_4.app();
 //        Kapitel_3.app();
 //        Kapitel_2.app();
-//        Kapitel_1.app("Gerald", 123456789);
-//        MiscCode.fibonacci(21);
-//        MiscCode.leapYear();
-//        MiscCode.ternaryOp();
-//        MiscCode.newSwitch();
-//        MiscCode.momsCompute();
-//        MiscCode.antBlank();
-//        MiscCode.bankProgram();
-//        MiscCode.bufferedReaderTest();
-//        MiscCode.scannerTest1();
-//        MiscCode.scannerTest2();
-//        MiscCode.arrayTest();
-//        MiscCode.readFileTest();
-//        MiscCode.fileCopyDemo();
+//        Kapitel_1.app("Harry", 123456789);
+//        MiscCode.app();
     }
 }
