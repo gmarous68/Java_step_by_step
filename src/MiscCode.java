@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.io.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
@@ -15,7 +16,8 @@ public class MiscCode {
 //        bufferedReaderTest();
 //        scannerTest1();
 //        scannerTest2();
-//        arrayTest();
+//        arrayTest1();
+//        arrayTest2();
 //        readFileTest();
 //        fileCopyDemo();
 //        distanceDemo();
@@ -164,7 +166,7 @@ public class MiscCode {
         System.out.println("Summa: " + sum);
     }
 
-    private static void arrayTest() {
+    private static void arrayTest1() {
         String[][] names = {
                 {"Mr. ", "Mrs. ", "Ms. "},
                 {"Smith", "Jones"}
@@ -175,6 +177,18 @@ public class MiscCode {
                 System.out.println(names[0][i] + names[1][j]);
             }
         }
+    }
+
+    private static void arrayTest2() {
+        int[] intArr1 = {1,2,3,4,5,6};
+        var intArr2 = Arrays.copyOf(intArr1, intArr1.length + 1);
+        System.out.println(Arrays.toString(intArr1));
+        System.out.println(Arrays.toString(intArr2));
+
+        String[] strArr1 = {"One", "Two", "Three", "Four"};
+        var strArr2 = Arrays.copyOf(strArr1, strArr1.length + 1);
+        System.out.println(Arrays.toString(strArr1));
+        System.out.println(Arrays.toString(strArr2));
     }
 
     private static void readFileTest() {
