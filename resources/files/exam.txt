@@ -1,0 +1,12 @@
+Harry
+6   5   8   7   2
+Larry
+4   5   8   3   2
+Mary
+8   8   9   9   1
+Gary
+7   5   6   5   4
+Lorry
+4   5   6   7   8
+Morty
+1   8   8   9   5
