@@ -13,7 +13,8 @@ public class Kapitel_12 {
 //        exercise_12_6();
 //        exercise_12_7();
 //        programmeringuppgift_12_1();
-        programmeringuppgift_12_2();
+//        programmeringuppgift_12_2();
+//        programmeringuppgift_12_3();
     }
 
     private static void exercise_12_1() {
@@ -178,14 +179,72 @@ public class Kapitel_12 {
     }
 
     private static void programmeringuppgift_12_2() {
+        int[][] int2Arr = new int[4][4];
 
+        for (int i = 0; i < int2Arr.length; i++) {
+            for (int j = 0; j < int2Arr[i].length; j++) {
+                int2Arr[i][j] = (i + 1) * (j + 1);
+            }
+        }
+        if (symmetrisk(int2Arr))
+            System.out.println("Symmetric!");
+        else
+            System.out.println("NOT Symmetric!");
+    }
+
+    private static void programmeringuppgift_12_3() {
+        int[][] int2Arr = {{16, 9, 2, 7}, {6, 3, 12, 13}, {11, 14, 5, 4}, {1, 8, 15, 10}};
+        if (magical(int2Arr))
+            System.out.println("Magical!");
+        else
+            System.out.println("NOT Magical!");
+    }
+
+    private static boolean magical(int[][] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++)
+                System.out.print(a[i][j] + " ");
+            System.out.println();
+        }
+
+        int totSumRow = -1;
+        for (int i = 0; i < a.length; i++) {
+            int sumRow = 0;
+            for (int j = 0; j < a[i].length; j++) {
+                if (a.length != a[i].length)
+                    return false;
+                sumRow += a[i][j];
+            }
+            if(totSumRow == -1) {
+                totSumRow = sumRow;
+                continue;
+            }
+            if(sumRow != totSumRow)
+                return false;
+        }
+        return true;
+    }
+
+    private static boolean symmetrisk(int[][] a) {
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++)
+                System.out.print(a[i][j] + " ");
+            System.out.println();
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++)
+                if((a.length != a[i].length) || (a[i][j] != a[j][i]))
+                    return false;
+        }
+        return true;
     }
 
     private static double avgStudent(int[][] grade, int i) {
         double studentTot = 0;
         int counter = 0;
 
-        for(int col : grade[i]) {
+        for (int col : grade[i]) {
             studentTot += col;
             ++counter;
         }

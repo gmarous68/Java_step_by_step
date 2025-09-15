@@ -1,6 +1,11 @@
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 import java.util.Scanner;
+import java.io.FileWriter;
+
 
 public class Dice {
     public static void createFile() {
