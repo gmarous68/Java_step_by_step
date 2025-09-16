@@ -2,7 +2,7 @@ public class Kapitel_13 {
     public static void app() {
 //        programmeringuppgift_13_1();
 //        programmeringuppgift_13_2();
-        programmeringuppgift_13_3();
+//        programmeringuppgift_13_6();
     }
 
     private static void programmeringuppgift_13_1() {
@@ -34,9 +34,23 @@ public class Kapitel_13 {
         System.out.println(ARN);
     }
 
-    private static void programmeringuppgift_13_3() {
-
+    private static void programmeringuppgift_13_6() {
+        Card a = new Card();
+        Card b = new Card();
+        a.color = Card.SPADES;
+        a.value = 12;
+        b.color = Card.CLOVS;
+        b.value = 7;
     }
+}
+
+class Card {
+    public static final int CLOVS = 0;
+    public static int DIAMONDS = 1;
+    public static int HEARTS = 2;
+    public static int SPADES = 3;
+    int value;
+    int color;
 }
 
 class Position {

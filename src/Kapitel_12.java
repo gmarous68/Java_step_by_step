@@ -164,7 +164,6 @@ public class Kapitel_12 {
                 }
             }
 
-
             for (int i = 0; i < names.length; i++) {
                 avgStudent = avgStudent(grade, i);
                 System.out.println("Student " + names[i] + " received avg grade of: " + avgStudent);

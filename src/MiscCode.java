@@ -248,7 +248,6 @@ public class MiscCode {
 
     private static void rectangleDemo() {
         Rectangle r1 = new Rectangle();
-        Rectangle r2 = new Rectangle();
         try {
             r1.setHeight(10);
             r1.setWidth(20);
