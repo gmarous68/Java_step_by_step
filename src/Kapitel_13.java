@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class Kapitel_13 {
     public static void app() {
 //        programmeringuppgift_13_1();
@@ -23,15 +25,28 @@ public class Kapitel_13 {
 
     private static void programmeringuppgift_13_2() {
         var GOT = new Position();  // Landvetter
-        GOT.latGr = 57;  GOT.latMin = 39;  GOT.latSek = 47;  GOT.latNorth = true;
-        GOT.longGr = 12; GOT.longMin = 16; GOT.longSek = 58; GOT.longEast = true;
+        GOT.latGr = 57;
+        GOT.latMin = 39;
+        GOT.latSek = 47;
+        GOT.latNorth = true;
+        GOT.longGr = 12;
+        GOT.longMin = 16;
+        GOT.longSek = 58;
+        GOT.longEast = true;
         System.out.println(GOT);
         System.out.println("*********************************");
 
         var ARN = new Position();  // Arlanda
-        ARN.latGr = 59;  ARN.latMin = 24;  ARN.latSek = 52;  ARN.latNorth = true;
-        ARN.longGr = 17; ARN.longMin = 55; ARN.longSek = 18; ARN.longEast = true;
+        ARN.latGr = 59;
+        ARN.latMin = 24;
+        ARN.latSek = 52;
+        ARN.latNorth = true;
+        ARN.longGr = 17;
+        ARN.longMin = 55;
+        ARN.longSek = 18;
+        ARN.longEast = true;
         System.out.println(ARN);
+        System.out.println("*********************************");
     }
 
     private static void programmeringuppgift_13_6() {
@@ -39,19 +54,76 @@ public class Kapitel_13 {
         Card b = new Card();
         a.color = Card.SPADES;
         a.value = 12;
-        b.color = Card.CLOVS;
+        b.color = Card.CLOVES;
         b.value = 7;
     }
 }
 
 class Card {
-    public static final int CLOVS = 0;
-    public static int DIAMONDS = 1;
-    public static int HEARTS = 2;
-    public static int SPADES = 3;
+    public static final int CLOVES = 0;
+    public static final int DIAMONDS = 1;
+    public static final int HEARTS = 2;
+    public static final int SPADES = 3;
     int value;
     int color;
+
+    @Override
+    public String toString() {
+        String v = switch (value) {
+            case 1 -> "One";
+            case 2 -> "Two";
+            case 3 -> "Three";
+            case 4 -> "Four";
+            case 5 -> "Five";
+            case 6 -> "Six";
+            case 7 -> "Seven";
+            case 8 -> "Eight";
+            case 9 -> "Nine";
+            case 10 -> "Ten";
+            case 11 -> "Jack";
+            case 12 -> "Queen";
+            case 13 -> "King";
+            case 14 -> "Ace";
+            default -> throw new IllegalArgumentException("No such value!");
+        };
+
+        String c = switch (color) {
+            case CLOVES -> "Cloves";
+            case DIAMONDS -> "Diamonds";
+            case HEARTS -> "Hearts";
+            case SPADES -> "Spades";
+            default -> throw new IllegalArgumentException("No such value!");
+        };
+
+        return "Card: " + v + " of " + c;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return value == card.value && color == card.color;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value, color);
+    }
+
+    public void changeCard(int c, int v) {
+        if (v < 1 || v > 14) {
+            System.out.println("Wrong card number!");
+            return;
+        }
+        if (c < 0 || c > 3) {
+            System.out.println("Wrong card color!");
+            return;
+        }
+        this.color = c;
+        this.value = v;
+    }
 }
+
 
 class Position {
     int latGr, latMin, latSek;
