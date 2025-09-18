@@ -1,6 +1,8 @@
 import javax.swing.*;
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -22,6 +24,7 @@ public class MiscCode {
 //        fileCopyDemo();
 //        distanceDemo();
 //        rectangleDemo();
+//        nameTest();
     }
 
     private static void fibonacci(int x) {
@@ -35,6 +38,34 @@ public class MiscCode {
             lo = hi - lo;
         }
         System.out.println();
+    }
+
+    private static void nameTest() {
+        List<String> names = new ArrayList<>();
+        int countAlHakim = 0, counter = 0;
+
+        try (Scanner sc = new Scanner(new File("resources/files/names2.txt"))) {
+            while (sc.hasNextLine()) {
+                counter++;
+                names.add(sc.nextLine());
+            }
+            System.out.println("No of names in file: " + counter);
+            System.out.println("*********************************");
+
+            for (int i=names.size()-1; i>=0; i--) {
+                String name = names.get(i);
+                int idxBlank = name.indexOf(" ");
+                if(name.substring(idxBlank+1).equals("Al Hakim"))
+                    countAlHakim++;
+                System.out.println(name);
+            }
+            System.out.println("*********************************");
+
+            System.out.println("Numbers of \"Al Hakim's\" in file: " + countAlHakim);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     private static void momsCompute() {
@@ -146,7 +177,7 @@ public class MiscCode {
 
             try {
                 num = Integer.parseInt(txt);
-            } catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Du måste skriva in ett heltal!");
             }
             maxValue = Math.max(num, maxValue);
@@ -160,7 +191,7 @@ public class MiscCode {
         Scanner sc = new Scanner(s);
         int sum = 0;
 
-        while(sc.hasNextInt()) {
+        while (sc.hasNextInt()) {
             sum += sc.nextInt();
         }
         System.out.println("Summa: " + sum);
@@ -180,7 +211,7 @@ public class MiscCode {
     }
 
     private static void arrayTest2() {
-        int[] intArr1 = {1,2,3,4,5,6};
+        int[] intArr1 = {1, 2, 3, 4, 5, 6};
         var intArr2 = Arrays.copyOf(intArr1, intArr1.length + 1);
         System.out.println(Arrays.toString(intArr1));
         System.out.println(Arrays.toString(intArr2));
@@ -197,7 +228,7 @@ public class MiscCode {
             int rowNo = 0;
             String row;
 
-            while((row = br.readLine()) != null) {
+            while ((row = br.readLine()) != null) {
                 rowNo++;
                 System.out.println(rowNo + ": " + row);
             }
@@ -207,7 +238,7 @@ public class MiscCode {
     }
 
     private static void fileCopyDemo() {
-        try(BufferedReader input = new BufferedReader(new InputStreamReader(System.in))) {
+        try (BufferedReader input = new BufferedReader(new InputStreamReader(System.in))) {
             System.out.println("Name of the file: ");
             String fileName1 = "resources/files/" + input.readLine();
             BufferedReader inStream = new BufferedReader(new FileReader(fileName1));
@@ -218,24 +249,19 @@ public class MiscCode {
 
             int rowNo = 0;
             String row;
-            while((row = inStream.readLine()) != null) {
-                 rowNo++;
-                 outStream.println(rowNo + ": " + row);
+            while ((row = inStream.readLine()) != null) {
+                rowNo++;
+                outStream.println(rowNo + ": " + row);
             }
             outStream.close();
-        } catch(IOException e) {
+        } catch (IOException e) {
             System.out.println(e.getMessage());
         }
     }
 
     private static void distanceDemo() {
-        Point pkt1 = new Point();
-        pkt1.x = 0;
-        pkt1.y = 0;
-
-        Point pkt2 = new Point();
-        pkt2.x = 3;
-        pkt2.y = 4;
+        Point pkt1 = new Point(0, 0);
+        Point pkt2 = new Point(3, 4);
 
         System.out.print("Distance between those two points: ");
         System.out.println(Point.distance(pkt1, pkt2));
@@ -243,7 +269,7 @@ public class MiscCode {
 
         Point p3 = Point.midPoint(pkt1, pkt2);
         System.out.print("Middelpoint between is: ");
-        System.out.println("(" + p3.x + ", " + p3.y + ")");
+        System.out.println("(" + p3.getX() + ", " + p3.getY() + ")");
     }
 
     private static void rectangleDemo() {
@@ -253,15 +279,36 @@ public class MiscCode {
             r1.setWidth(20);
             System.out.println(r1.perimeter());
             System.out.println(r1.area());
-        } catch(IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
 }
 
-class Point{
-    double x;
-    double y;
+class Point {
+    private double x;
+    private double y;
+
+    Point(double x, double y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
 
     public static double distance(Point p1, Point p2) {
         return Math.sqrt(
@@ -271,7 +318,7 @@ class Point{
     }
 
     public static Point midPoint(Point p1, Point p2) {
-        Point p = new Point();
+        Point p = new Point(0, 0);
         p.x = (p1.x + p2.x) / 2;
         p.y = (p1.y + p2.y) / 2;
         return p;
@@ -310,5 +357,35 @@ class Rectangle {
             this.width = width;
         else
             throw new IllegalArgumentException("Negative width");
+    }
+}
+
+class Names {
+    private String fName;
+    private String mName;
+    private String lName;
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public String getmName() {
+        return mName;
+    }
+
+    public void setmName(String mName) {
+        this.mName = mName;
     }
 }
