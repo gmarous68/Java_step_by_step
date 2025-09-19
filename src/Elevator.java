@@ -13,6 +13,7 @@ public class Elevator {
             this.level = level;
         } catch(IllegalArgumentException e) {
             System.out.println("Only levels between -2 & 10 allowed!");
+            this.level = 0;
         }
     }
 
@@ -25,7 +26,7 @@ public class Elevator {
             checkValidLevel(level);
 
             if (level == this.level) {
-                System.out.println("Elevator " + elevator + " already att level " + level);
+                System.out.println("Elevator " + elevator + " already at level " + level);
                 return;
             }
             String s = "Elevator " + elevator + " is moving";
