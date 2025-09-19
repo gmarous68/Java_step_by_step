@@ -4,10 +4,11 @@ public class Kapitel_16 {
     }
 
     private static void exercise_16_() {
-
+        //TODO
     }
 
     private static void programmeringuppgift_16_() {
+        //TODO
 
     }
 }
